@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Photographe football</title>
+  <meta name="description" content="Contacte-moi pour une couverture de match, une séance joueur ou des visuels matchday.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,700;1,800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-contact">
+  <header class="nav">
+    <a href="index.html" class="back">← Retour</a>
+    <a href="index.html" class="logo" data-fill="nom"></a>
+    <span></span>
+  </header>
+
+  <main class="contact-page">
+    <section class="contact-intro">
+      <svg class="pitch" viewBox="0 0 600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3"><rect x="20" y="20" width="560" height="860"/><line x1="20" y1="450" x2="580" y2="450"/><circle cx="300" cy="450" r="90"/><rect x="150" y="20" width="300" height="150"/><rect x="230" y="20" width="140" height="55"/><rect x="150" y="730" width="300" height="150"/><rect x="230" y="825" width="140" height="55"/><path d="M240 170 A70 70 0 0 0 360 170"/><path d="M240 730 A70 70 0 0 1 360 730"/></g></svg>
+      <div class="contact-intro-in">
+        <p class="kicker">Contact</p>
+        <h1>Parlons de ton <span class="outline">prochain match</span></h1>
+        <p class="contact-lead">Joueur, agent ou club : explique-moi ton besoin, je te réponds sous 24h avec une proposition.</p>
+        <ul class="contact-facts">
+          <li><span>Réponse</span>sous 24h</li>
+          <li><span>Livraison</span>sous 48h</li>
+          <li><span>Zone</span><span data-fill="ville" class="v"></span></li>
+        </ul>
+        <div class="socials" id="socials"></div>
+      </div>
+    </section>
+
+    <section class="contact-form-wrap">
+      <form class="contact-form" id="form" novalidate>
+        <div class="field">
+          <label for="f-nom">Nom et prénom *</label>
+          <input id="f-nom" name="nom" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-email">Ton email *</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required>
+        </div>
+
+        <fieldset class="field">
+          <legend>Tu es *</legend>
+          <div class="chips">
+            <label><input type="radio" name="profil" value="Joueur" required><span>Joueur</span></label>
+            <label><input type="radio" name="profil" value="Agent"><span>Agent</span></label>
+            <label><input type="radio" name="profil" value="Club"><span>Club</span></label>
+            <label><input type="radio" name="profil" value="Autre"><span>Autre</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-tel">Téléphone <em>(facultatif)</em></label>
+            <input id="f-tel" name="telephone" type="tel" autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="f-club">Club / équipe <em>(facultatif)</em></label>
+            <input id="f-club" name="club" type="text">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-msg">Ton message *</label>
+          <textarea id="f-msg" name="message" rows="6" required placeholder="Ex : je joue en National 2, j'aimerais que tu couvres notre match du 12 décembre à domicile…"></textarea>
+        </div>
+
+        <!-- piège anti-robots : invisible pour les humains -->
+        <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+        <button type="submit" class="btn btn-big" id="submit">Envoyer le message →</button>
+        <p class="form-note">Ton email me sert uniquement à te répondre.</p>
+      </form>
+
+      <div class="form-success" id="success" hidden tabindex="-1">
+        <p class="kicker">Message envoyé</p>
+        <h2>Merci, c'est reçu&nbsp;!</h2>
+        <p>Je te réponds très vite à l'adresse <strong id="success-email"></strong>.</p>
+        <a href="index.html" class="btn">← Revenir au portfolio</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-logo" data-fill="nom"></span>
+    <span class="socials" id="socials-foot"></span>
+    <span class="small">© <span id="year"></span> — Tous droits réservés sur les images.</span>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/social.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>

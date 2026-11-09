@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>À propos — Photographe football</title>
+  <meta name="description" content="Parcours, compétences et matériel d'un photographe spécialisé dans le football.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,700;1,800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-about">
+  <header class="nav">
+    <a href="index.html" class="back">← Accueil</a>
+    <a href="index.html" class="logo" data-fill="nom"></a>
+    <a href="contact.html" class="nav-cta">Contact</a>
+  </header>
+
+  <main>
+    <!-- PRÉSENTATION -->
+    <section class="ab-hero">
+      <div class="ab-photo" id="ab-photo"></div>
+      <div class="ab-intro">
+        <p class="kicker">À propos</p>
+        <h1><span data-fill="nom"></span></h1>
+        <p class="ab-sub" id="ab-sub"></p>
+        <div class="ab-bio" id="ab-bio"></div>
+        <div class="ab-actions" id="ab-actions"></div>
+        <div class="ab-socials" id="ab-socials"></div>
+      </div>
+    </section>
+
+    <!-- CHIFFRES -->
+    <section class="ab-stats" aria-label="En chiffres">
+      <dl id="ab-stats"></dl>
+    </section>
+
+    <!-- CLUBS -->
+    <div class="marquee" aria-label="Clubs photographiés" id="ab-clubs-wrap"><div class="marquee-in" id="ab-clubs"></div></div>
+
+    <!-- PARCOURS / FORMATION -->
+    <section class="ab-section" id="ab-parcours-wrap">
+      <h2>Mon <span class="outline">parcours</span></h2>
+      <ol class="timeline" id="ab-parcours"></ol>
+    </section>
+
+    <section class="ab-section ab-alt" id="ab-formation-wrap">
+      <h2>Ma <span class="outline">formation</span></h2>
+      <ol class="timeline" id="ab-formation"></ol>
+    </section>
+
+    <!-- COMPÉTENCES / OUTILS -->
+    <section class="ab-section ab-grid2">
+      <div id="ab-comp-wrap">
+        <h2>Compé<wbr>tences</h2>
+        <ul class="tags" id="ab-comp"></ul>
+      </div>
+      <div id="ab-outils-wrap">
+        <h2>Matériel <span class="outline">& outils</span></h2>
+        <ul class="tags tags-alt" id="ab-outils"></ul>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="ab-cta">
+      <h2>On travaille ensemble&nbsp;?</h2>
+      <p>Joueur, agent ou club : parle-moi de ton projet.</p>
+      <a href="contact.html" class="btn btn-big">Me contacter →</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span class="footer-logo" data-fill="nom"></span>
+    <span class="socials" id="socials"></span>
+    <span class="small">© <span id="year"></span> — Tous droits réservés sur les images.</span>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/social.js"></script>
+  <script src="js/apropos.js"></script>
+</body>
+</html>
