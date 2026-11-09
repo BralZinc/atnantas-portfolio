@@ -30,6 +30,26 @@ const SITE = {
   // photo à côté du bloc « Un match à couvrir ? »
   photoContact: "photos/site/contact.jpg",
 
+  // bandeau défilant sous le carrousel : uniquement les logos (un élément sans logo n'apparaît pas)
+  // long: true = logo horizontal · blanc: true = logo foncé affiché en blanc · fondNoir: true = efface un fond noir
+  equipes: [
+    { nom: "FCSM", logo: "photos/logos/clubs/fcsm.png" },
+    { nom: "RCSA", logo: "photos/logos/clubs/rcsa.png" },
+    { nom: "OL", logo: "photos/logos/clubs/ol.png" },
+    { nom: "DFCO", logo: "photos/logos/clubs/dfco.png" },
+    { nom: "FC Nantes", logo: "photos/logos/clubs/nantes.png" },
+    { nom: "Toulouse FC", logo: "photos/logos/clubs/tfc.png" },
+    { nom: "FC Rouen", logo: "photos/logos/clubs/rouen.png" },
+    { nom: "Valence FC", logo: "" },
+    { nom: "Paris 13 Atletico", logo: "photos/logos/clubs/paris13.png" },
+  ],
+  competitions: [
+    { nom: "Ligue 1", logo: "photos/logos/clubs/ligue1-long-blanc.png", long: true },
+    { nom: "Ligue 2", logo: "photos/logos/clubs/ligue2-long.png", long: true },
+    { nom: "National (Ligue 3)", logo: "photos/logos/clubs/ligue3-long.png", long: true },
+    { nom: "U19", logo: "" },
+  ],
+
   // mots qui défilent dans le bandeau jaune
   bandeau: ["Matchs", "Séances joueurs", "Agents", "Clubs", "Matchday", "Livraison sous 48h"],
 

@@ -480,3 +480,34 @@ h1, h2, h3, .logo, .footer-logo {
   .feed { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .feed .entry.is-first .ph { max-height: 78vh; aspect-ratio: auto; height: min(78vh, calc((100vw - 2 * var(--gutter)) * 5 / 11 / var(--r, .8))); }
 }
+
+/* bandeau clubs & ligues (sous le carrousel) */
+.marquee-teams { background: var(--pitch); color: var(--chalk); border-block: 3px solid var(--orange); padding: 14px 0; }
+.marquee-teams .marquee-in { animation-name: slide-rev; animation-duration: 45s; }
+.marquee-teams .marquee-in span:nth-child(even) { color: var(--chalk); -webkit-text-stroke: 0; }
+.marquee-teams .marquee-in span.comp { color: transparent; -webkit-text-stroke: 1.5px var(--orange); }
+.marquee-teams .marquee-in span::after { color: var(--orange); }
+@keyframes slide-rev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+/* logos seuls dans le bandeau clubs & ligues */
+.marquee-teams { padding: 18px 0; }
+.marquee-teams .marquee-in { align-items: center; }
+.marquee-teams .marquee-in span.logo-item { display: inline-flex; align-items: center; padding: 0 clamp(26px, 3vw, 44px); }
+.marquee-teams .marquee-in span.logo-item::after { content: none; }
+.marquee-teams .logo-item img { height: 64px; width: auto; display: block; }
+.marquee-teams .logo-item.is-long img { height: 38px; }
+@media (max-width: 600px) {
+  .marquee-teams .logo-item img { height: 48px; }
+  .marquee-teams .logo-item.is-long img { height: 28px; }
+}
+.marquee-teams .logo-item.is-white img { filter: brightness(0) invert(1); }
+.marquee-teams .logo-item.is-on-black img { mix-blend-mode: screen; }
+.marquee-teams .marquee-in { background: var(--pitch); }
+.marquee-teams .logo-item.is-long img[src*="ligue3-long"] { height: 46px; }
+
+/* bandeau clubs : défilement manuel possible */
+.marquee-teams.is-scrollable { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; cursor: grab; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; }
+.marquee-teams.is-scrollable::-webkit-scrollbar { display: none; }
+.marquee-teams.is-scrollable .marquee-in { animation: none !important; }
+.marquee-teams.is-dragging { cursor: grabbing; }
+.marquee-teams.is-dragging, .marquee-teams.is-dragging * { user-select: none; }
+.marquee-teams .logo-item img { pointer-events: none; }

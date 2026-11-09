@@ -45,11 +45,73 @@
   $("#reel-prev").onclick = () => reel.scrollBy({ left: -reelStep(), behavior: "smooth" });
   $("#reel-next").onclick = () => reel.scrollBy({ left: reelStep(), behavior: "smooth" });
 
+  /* Bandeau défilant automatique ET manipulable (doigt, trackpad, clic-glisser) */
+  function scrollableMarquee(box, speed) {
+    if (!box) return;
+    box.classList.add("is-scrollable");
+    const track = box.firstElementChild;
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let pausedUntil = 0, dragging = false, startX = 0, startLeft = 0, moved = false;
+    const half = () => track.scrollWidth / 2;
+    const wrap = () => {                       // boucle infinie : le contenu est répété
+      const h = half();
+      if (box.scrollLeft >= h) box.scrollLeft -= h;
+      else if (box.scrollLeft <= 0) box.scrollLeft += h;
+    };
+    const pause = (ms = 2500) => { pausedUntil = performance.now() + ms; };
+    requestAnimationFrame(() => { box.scrollLeft = half() / 2; });
+    let acc = 0;
+    const tick = () => {
+      if (!reduce && !dragging && performance.now() > pausedUntil) {
+        acc += speed;                          // scrollLeft n'accepte que des pixels entiers
+        const step = Math.trunc(acc);
+        if (step) { box.scrollLeft += step; acc -= step; wrap(); }
+      }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+
+    box.addEventListener("scroll", wrap, { passive: true });
+    box.addEventListener("wheel", () => pause(), { passive: true });
+    box.addEventListener("touchstart", () => pause(4000), { passive: true });
+    box.addEventListener("touchmove", () => pause(4000), { passive: true });
+    box.addEventListener("mouseenter", () => pause(600000));
+    box.addEventListener("mouseleave", () => { dragging = false; box.classList.remove("is-dragging"); pause(1200); });
+    // clic-glisser à la souris
+    box.addEventListener("pointerdown", e => {
+      if (e.pointerType !== "mouse") return;
+      dragging = true; moved = false; startX = e.clientX; startLeft = box.scrollLeft;
+      box.classList.add("is-dragging");
+    });
+    window.addEventListener("pointermove", e => {
+      if (!dragging) return;
+      const dx = e.clientX - startX;
+      if (Math.abs(dx) > 3) moved = true;
+      box.scrollLeft = startLeft - dx; wrap();
+    });
+    window.addEventListener("pointerup", () => {
+      if (!dragging) return;
+      dragging = false; box.classList.remove("is-dragging"); pause(2500);
+    });
+    box.addEventListener("dragstart", e => e.preventDefault());
+  }
+
   /* ---------- Bandeaux défilants ---------- */
   const fillMarquee = (el, words) => {
     const row = words.map(w => `<span>${esc(w)}</span>`).join("");
     el.innerHTML = row.repeat(4);
   };
+  // bandeau clubs & ligues : logos seuls, les compétitions intercalées entre les clubs
+  const withLogo = list => (list || []).filter(x => x && x.logo);
+  const teams = withLogo(SITE.equipes), comps = withLogo(SITE.competitions);
+  const logo = x => `<span class="logo-item${x.long ? " is-long" : ""}${x.blanc ? " is-white" : ""}${x.fondNoir ? " is-on-black" : ""}"><img src="${esc(x.logo)}" alt="${esc(x.nom)}" title="${esc(x.nom)}"></span>`;
+  const mix = [];
+  teams.forEach((t, i) => { mix.push(logo(t)); if (i % 2 === 1 && comps.length) mix.push(logo(comps[(i >> 1) % comps.length])); });
+  if (mix.length) {
+    $("#marquee0").innerHTML = mix.join("").repeat(4);
+    scrollableMarquee($(".marquee-teams"), -0.6);   // défile tout seul, mais se manipule à la main
+  } else $(".marquee-teams").remove();
+
   fillMarquee($("#marquee1"), SITE.bandeau || ["Matchs", "Séances joueurs", "Agents", "Clubs"]);
   fillMarquee($("#marquee2"), [`Écris-moi : ${SITE.email}`, "Réponse sous 24h"]);
 
