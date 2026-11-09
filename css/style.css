@@ -445,3 +445,38 @@ h1, h2, h3, .logo, .footer-logo {
 .contact-links .soc { margin-top: 6px; }
 .contact-links .soc-btn { padding: 12px 20px 12px 16px; }
 .contact-intro .soc { margin-top: 8px; }
+
+/* =========================================================
+   « LES MATCHS » EN GRILLE (tablette & ordinateur)
+   ========================================================= */
+.entry-cta { display: none; }
+@media (min-width: 700px) {
+  .feed { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px 28px; grid-auto-flow: dense; align-items: start; }
+  .feed .entry { width: auto; margin: 0; }
+  .feed .entry .ph { aspect-ratio: 4/5; }
+  .feed .entry .ph img { object-position: 50% 25%; }
+  .feed .entry.is-land { grid-column: span 2; }
+  .feed .entry.is-land .ph { aspect-ratio: 16/10; }
+  .feed .entry .num { font-size: clamp(64px, 6vw, 96px); }
+  .feed .entry h3 { font-size: clamp(24px, 2.2vw, 34px); }
+  .feed .entry .meta { font-size: 14px; }
+
+  /* match n°1 en vedette : photo entière + grand titre */
+  .feed .entry.is-first { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(28px, 4vw, 64px); align-items: end; }
+  .feed .entry.is-first .ph { aspect-ratio: var(--r, 4/5); }
+  .feed .entry.is-first .ph img { object-position: 50% 50%; }
+  .feed .entry.is-first figcaption { margin: 0; flex-direction: column; align-items: flex-start; gap: 18px; padding-bottom: 8px; }
+  .feed .entry.is-first h3 { font-size: clamp(48px, 6vw, 104px); line-height: .9; }
+  .feed .entry.is-first .meta { font-size: 16px; }
+  .feed .entry.is-first .num { font-size: clamp(90px, 10vw, 170px); }
+  .feed .entry.is-first .entry-cta {
+    display: inline-block; margin-top: 10px; background: var(--orange); color: var(--ink);
+    font-family: var(--cond); font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: .04em;
+    font-size: clamp(18px, 1.6vw, 22px); padding: 12px 26px; transform: skewX(var(--skew)); transition: background .2s;
+  }
+  .feed .entry.is-first:hover .entry-cta { background: var(--chalk); }
+}
+@media (min-width: 1100px) {
+  .feed { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .feed .entry.is-first .ph { max-height: 78vh; aspect-ratio: auto; height: min(78vh, calc((100vw - 2 * var(--gutter)) * 5 / 11 / var(--r, .8))); }
+}

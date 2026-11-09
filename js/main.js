@@ -62,13 +62,14 @@
     const cover = photosOf(a)[0];
     const r = ratioOf(cover);
     return `
-      <button class="entry ${layout} reveal" data-album="${i}" aria-label="Ouvrir l'album ${esc(a.titre)}" ${r ? `style="--r:${r.toFixed(4)}"` : ""}>
+      <button class="entry ${layout}${pos === 0 ? " is-first" : ""}${r && r > 1.2 ? " is-land" : ""} reveal" data-album="${i}" aria-label="Ouvrir l'album ${esc(a.titre)}" ${r ? `style="--r:${r.toFixed(4)}"` : ""}>
         <span class="num" aria-hidden="true">${String(pos + 1).padStart(2, "0")}</span>
         ${photoHTML(cover, a)}
         <figcaption>
           <h3>${esc(a.titre)}</h3>
           ${a.score ? `<span><span class="score-lbl">Score final</span><span class="score">${esc(a.score)}</span></span>` : ""}
           <span class="meta">${meta}</span>
+          <span class="entry-cta" aria-hidden="true">Voir l'album →</span>
         </figcaption>
       </button>`;
   };
