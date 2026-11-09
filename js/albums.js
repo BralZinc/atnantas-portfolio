@@ -283,7 +283,7 @@ window.ALBUMS = [
       {
         "src": "photos/fc-sochaux-montbeliard-paris13-ligue-3/grand/002.jpg",
         "thumb": "photos/fc-sochaux-montbeliard-paris13-ligue-3/mini/002.jpg",
-        "w": 533,
+        "w": 640,
         "h": 800
       },
       {
@@ -295,13 +295,13 @@ window.ALBUMS = [
       {
         "src": "photos/fc-sochaux-montbeliard-paris13-ligue-3/grand/004.jpg",
         "thumb": "photos/fc-sochaux-montbeliard-paris13-ligue-3/mini/004.jpg",
-        "w": 640,
+        "w": 533,
         "h": 800
       },
       {
         "src": "photos/fc-sochaux-montbeliard-paris13-ligue-3/grand/005.jpg",
         "thumb": "photos/fc-sochaux-montbeliard-paris13-ligue-3/mini/005.jpg",
-        "w": 533,
+        "w": 640,
         "h": 800
       },
       {
@@ -337,7 +337,7 @@ window.ALBUMS = [
       {
         "src": "photos/fc-sochaux-montbeliard-paris13-ligue-3/grand/011.jpg",
         "thumb": "photos/fc-sochaux-montbeliard-paris13-ligue-3/mini/011.jpg",
-        "w": 640,
+        "w": 600,
         "h": 800
       },
       {
@@ -349,13 +349,13 @@ window.ALBUMS = [
       {
         "src": "photos/fc-sochaux-montbeliard-paris13-ligue-3/grand/013.jpg",
         "thumb": "photos/fc-sochaux-montbeliard-paris13-ligue-3/mini/013.jpg",
-        "w": 533,
+        "w": 640,
         "h": 800
       },
       {
         "src": "photos/fc-sochaux-montbeliard-paris13-ligue-3/grand/014.jpg",
         "thumb": "photos/fc-sochaux-montbeliard-paris13-ligue-3/mini/014.jpg",
-        "w": 600,
+        "w": 640,
         "h": 800
       },
       {
@@ -373,42 +373,6 @@ window.ALBUMS = [
       {
         "src": "photos/fc-sochaux-montbeliard-paris13-ligue-3/grand/017.jpg",
         "thumb": "photos/fc-sochaux-montbeliard-paris13-ligue-3/mini/017.jpg",
-        "w": 800,
-        "h": 533
-      },
-      {
-        "src": "photos/fc-sochaux-montbeliard-paris13-ligue-3/grand/018.jpg",
-        "thumb": "photos/fc-sochaux-montbeliard-paris13-ligue-3/mini/018.jpg",
-        "w": 800,
-        "h": 533
-      },
-      {
-        "src": "photos/fc-sochaux-montbeliard-paris13-ligue-3/grand/019.jpg",
-        "thumb": "photos/fc-sochaux-montbeliard-paris13-ligue-3/mini/019.jpg",
-        "w": 800,
-        "h": 533
-      },
-      {
-        "src": "photos/fc-sochaux-montbeliard-paris13-ligue-3/grand/020.jpg",
-        "thumb": "photos/fc-sochaux-montbeliard-paris13-ligue-3/mini/020.jpg",
-        "w": 640,
-        "h": 800
-      },
-      {
-        "src": "photos/fc-sochaux-montbeliard-paris13-ligue-3/grand/021.jpg",
-        "thumb": "photos/fc-sochaux-montbeliard-paris13-ligue-3/mini/021.jpg",
-        "w": 640,
-        "h": 800
-      },
-      {
-        "src": "photos/fc-sochaux-montbeliard-paris13-ligue-3/grand/022.jpg",
-        "thumb": "photos/fc-sochaux-montbeliard-paris13-ligue-3/mini/022.jpg",
-        "w": 640,
-        "h": 800
-      },
-      {
-        "src": "photos/fc-sochaux-montbeliard-paris13-ligue-3/grand/023.jpg",
-        "thumb": "photos/fc-sochaux-montbeliard-paris13-ligue-3/mini/023.jpg",
         "w": 640,
         "h": 800
       }
